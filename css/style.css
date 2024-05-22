@@ -144,23 +144,23 @@ button:hover{
 }
 
 .contact-phone{
-    background-image: url('img/ContactsIconPhone.svg');
+    background-image: url('../img/ContactsIconPhone.svg');
 }
 
 .contact-mail{
-    background-image: url('img/ContactsIconMail.svg');
+    background-image: url('../img/ContactsIconMail.svg');
     
 }
 
 .socialvk{
-    background-image:url('img/social_vk.svg');
+    background-image:url('../img/social_vk.svg');
 }
 .socialgit{
-    background-image:url('img/social_github.svg');
+    background-image:url('../img/social_github.svg');
 }
 
 .socialtel{
-    background-image:url('img/social_telegram.svg');
+    background-image:url('../img/social_telegram.svg');
 }
 .visual-hidden{
     position: absolute;
@@ -214,22 +214,22 @@ button:hover{
 
 
 .skill-item_html {
-    background-image: url("img/skill_html.svg");
+    background-image: url("../img/skill_html.svg");
 }
 
 
 .skill-item_css {
-    background-image: url("img/skill_css.svg");
+    background-image: url("../img/skill_css.svg");
 }
 
 
 .skill-item_cpp {
-    background-image: url("img/skill_c++.svg");
+    background-image: url("../img/skill_c++.svg");
 }
 .skill-item_csharp{
-    background-image: url("img/skill_csharp.svg");
+    background-image: url("../img/skill_csharp.svg");
 }
 .skill-item_python {
-    background-image: url("img/skill_python.svg");
+    background-image: url("../img/skill_python.svg");
 }
 
