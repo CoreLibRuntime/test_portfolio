@@ -15,7 +15,6 @@ body{
 }
 
 h1{
-    font-family:"Open Sans";
     font-size: 60px;
     font-weight: 700;
     line-height: 1.1;
@@ -23,21 +22,18 @@ h1{
 }
 
 h2{
-    font-family: "Open Sans";
     font-size: 30px;
     font-weight: 700;
     line-height:1.2;
 }
 
 h3{
-    font-family: "Open Sans";
     font-size: 20px;
     font-weight: 400;
     line-height:1;
 }
 
 button a{
-    font-family: "Open Sans";
     font-size: 30px;
     font-weight: 700;
     line-height:1.2;
@@ -65,6 +61,7 @@ footer{
     display:inline-block;
     padding: 20px;
     text-decoration:none;
+    color:var(--txt-color);
 }
 .menu{
     padding: 10px;
@@ -87,7 +84,6 @@ button{
     padding: 10px;
     border:1px solid var(--teal);
     color:var(--teal);
-    background-color: #fff;
     
 }
 
@@ -133,6 +129,8 @@ button:hover{
     color: #212121;
 }
 
+
+
 .contact-link:hover{
     transition: all, .3s;
     color:var(--teal);
@@ -145,23 +143,23 @@ button:hover{
 }
 
 .contact-phone{
-    background-image: url('img/ContactsIconPhone.svg');
+    background-image: url('../img/ContactsIconPhone.svg');
 }
 
 .contact-mail{
-    background-image: url('img/ContactsIconMail.svg');
+    background-image: url('../img/ContactsIconMail.svg');
     
 }
 
 .socialvk{
-    background-image:url('img/social_vk.svg');
+    background-image:url('../img/social_vk.svg');
 }
 .socialgit{
-    background-image:url('img/social_github.svg');
+    background-image:url('../img/social_github.svg');
 }
 
 .socialtel{
-    background-image:url('img/social_telegram.svg');
+    background-image:url('../img/social_telegram.svg');
 }
 .visual-hidden{
     position: absolute;
@@ -215,22 +213,22 @@ button:hover{
 
 
 .skill-item_html {
-    background-image: url("/img/skill_html.svg");
+    background-image: url("../img/skill_html.svg");
 }
 
 
 .skill-item_css {
-    background-image: url("/img/skill_css.svg");
+    background-image: url("../img/skill_css.svg");
 }
 
 
 .skill-item_cpp {
-    background-image: url("/img/skill_c++.svg");
+    background-image: url("../img/skill_c++.svg");
 }
 .skill-item_csharp{
-    background-image: url("/img/skill_csharp.svg");
+    background-image: url("../img/skill_csharp.svg");
 }
 .skill-item_python {
-    background-image: url("/img/skill_python.svg");
+    background-image: url("../img/skill_python.svg");
 }
 
