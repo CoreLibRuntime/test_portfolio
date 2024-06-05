@@ -131,6 +131,7 @@ button:hover{
     background-repeat:no-repeat;
     background-position: left;
     color: #212121;
+    text-decoration: none;
 }
 
 
