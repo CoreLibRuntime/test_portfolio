@@ -5,6 +5,17 @@
     --bg-color:#ffffff;
 
 }
+
+.main-header{
+    display:flex;
+    padding-top:60px;
+    gap:40px;
+    align-items: center;
+}
+
+.main-header nav a{
+    display:flex;
+}
 body{
     color:var(--txt-color);
     background-color: var(--bg-color);
