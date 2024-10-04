@@ -12,7 +12,7 @@ let skills = {
             let dt = document.createElement('dt')
             dt.classList.add(elem.class, 'skill-item')
             dt.textContent=elem.skill
-            dt.style.backgroundImage=`url('../img/skill_${elem.iconName}')`
+            dt.style.backgroundImage=`url('/img/skill_${elem.iconName}')`
             let dd = document.createElement('dd')
             dd.classList.add('skill-level')
             let div = document.createElement('div')
