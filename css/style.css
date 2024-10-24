@@ -263,12 +263,12 @@ button:hover{
     margin-bottom: 0;
 }
 
-.skills-buttons{
+.skills-sort{
     display: flex;
     gap: 20px;
     align-items: center;
 }
-.skills-buttons button{
+.skills-sort button{
     padding-top:6px;
 }
 
@@ -470,7 +470,7 @@ button:hover{
         display: flex;
         margin-bottom: 30px;
     }
-    .skills-buttons button{
+    .skills-sort button{
         
         border-radius: 8px;
         padding:6px 10px 10px 10px;
@@ -502,11 +502,11 @@ button:hover{
         align-items:start;
     }   
 
-    .skills-buttons button{
+    .skills-sort button{
         width:100%;
     }
     
-    .skills-buttons{
+    .skills-sort{
         display: flex;
         flex-direction: column;
         align-items: start;
