@@ -101,8 +101,12 @@ h3{
     text-decoration:none;
     color:var(--txt-color);
 }
-.header-menu nav{
+
+.menu{
     display:flex;
+    align-items: center;
+    text-align: center;
+    
 }
 
 .menu a:hover{
@@ -428,20 +432,18 @@ button:hover{
         gap:20px;
         margin-bottom: 50px;
     }
-    .main-header nav{
+    .menu{
+        flex-direction: column;
+    }
+    /* .main-header nav{
         display: flex;
         flex-direction: column;
         text-align: center;
-    }
+    } */
     .main-header nav a{
         padding: 20px 30px 20px 30px;
     }
-    .menu{
-        display: flex;
-        align-items: center;
-        text-align: center;
-        flex-direction: column;
-    }
+    
 
     .nav-btn{
         display:block;
@@ -491,6 +493,10 @@ button:hover{
     .social{
         margin:0;
         gap:15px;
+    }
+
+    .main-nav_closed{
+        display:none;
     }
 }
 

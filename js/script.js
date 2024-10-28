@@ -42,6 +42,24 @@ let skills = {
         return parentElement
     }
 }
+let menu ={
+    opened:true,
+    nav : document.getElementsByClassName('menu')[0],
+    btn : document.getElementsByClassName('nav-btn')[0],
+    close(){
+        this.nav.classList.add('main-nav_closed')
+        this.btn.classList.add('nav-btn_open')
+        this.btn.classList.remove('nav-btn_close')
+        this.btn.innerHTML='<span class="visually-hidden">Открыть меню</span>'
+    },
+    open(){
+        this.nav.classList.remove('main-nav_closed')
+        this.btn.classList.add('nav-btn_close')
+        this.btn.classList.remove('nav-btn_open')
+        this.btn.innerHTML='<span class="visually-hidden">Закрыть меню</span>'
+    }
+}
+menu.close()
 skills.generateList(document.querySelector('dl.skill-list'))
 document.getElementsByClassName("skills-sort")[0].addEventListener("click",function(e){
     if(e.target.tagName==="BUTTON"){
@@ -56,6 +74,10 @@ document.getElementsByClassName("skills-sort")[0].addEventListener("click",funct
         }
     }
 });
+document.getElementsByClassName("nav-btn")[0].addEventListener(
+    "click", e=>e.target.classList.contains('nav-btn_open') ? menu.open():menu.close()
+);
+
 
 
 
