@@ -2,11 +2,11 @@
 let skills = {
     sortMode:null,
     data : [
-        {name:'html',level:40,class:'skill-item_html',iconName:'html.svg'},
-        {name:'css',level:40,class:'skill-item_css',iconName:'css.svg'},
-        {name:'c#',level:40,class:'skill-item_csharp',iconName:'csharp.svg'},
-        {name:'cpp',level:40,class:'skill-item_cpp',iconName:'c++.svg'},
-        {name:'python',level:40,class:'skill-item_python',iconName:'python.svg'},
+        {name:'html',level:60,class:'skill-item_html',iconName:'html.svg'},
+        {name:'css',level:70,class:'skill-item_css',iconName:'css.svg'},
+        {name:'c#',level:80,class:'skill-item_csharp',iconName:'csharp.svg'},
+        {name:'cpp',level:90,class:'skill-item_cpp',iconName:'c++.svg'},
+        {name:'python',level:100,class:'skill-item_python',iconName:'python.svg'},
     ],
     getComparator(prop){
         return (a,b) => a[prop]>b[prop] ? 1 : a[prop]<b[prop] ? -1:0
@@ -21,7 +21,7 @@ let skills = {
             console.log(`ИНВЕРТИРОВАЛИ ПО ${type}`);
         } 
         this.sortMode=type;
-        this.generateList(document.querySelector('dl.skill-list'));
+        
     },
     generateList(parentElement){
         parentElement.innerHTML="";
@@ -44,8 +44,13 @@ let skills = {
 }
 let menu = {
     opened:true,
-    nav : document.getElementsByClassName('menu')[0],
-    btn : document.getElementsByClassName('nav-btn')[0],
+    nav:null,
+    btn:null,
+    init(navig,button){
+        this.nav=navig;
+        this.btn=button;
+        menu.close();
+    },
     close(){
         this.nav.classList.add('main-nav_closed');
         this.btn.classList.add('nav-btn_open');
@@ -59,15 +64,16 @@ let menu = {
         this.btn.innerHTML='<span class="visually-hidden">Закрыть меню</span>';
     }
 }
-menu.close();
+menu.init(document.querySelector('.menu'),document.querySelector('.nav-btn'));
 skills.generateList(document.querySelector('dl.skill-list'));
 
-document.getElementsByClassName("skills-sort")[0].addEventListener("click",function(e){
+document.querySelector(".skills-sort").addEventListener("click",function(e){
     if(e.target.tagName==="BUTTON"){
         switch(e.target.dataset.type){
             case 'name':
             case 'level':
                 skills.sortList(e.target.dataset.type);
+                skills.generateList(document.querySelector('dl.skill-list'));
                 break;
             default:
                 console.log(e.target.tagName);
@@ -75,7 +81,7 @@ document.getElementsByClassName("skills-sort")[0].addEventListener("click",funct
         }
     }
 });
-document.getElementsByClassName("nav-btn")[0].addEventListener(
+document.querySelector(".nav-btn").addEventListener(
     "click", e => e.target.classList.contains('nav-btn_open') ? menu.open():menu.close()
 );
 

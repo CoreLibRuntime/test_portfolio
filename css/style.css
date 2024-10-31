@@ -158,7 +158,6 @@ button{
 }
 
 button:hover{
-    transition:  color .2s;
     transition: background-color .2s;
     background-color: var(--teal);
     color:var(--bg-color);
@@ -370,6 +369,10 @@ button:hover{
     .main-header{
         margin-bottom: 80px;
     }
+    .nav-btn:hover{
+        color:var(--teal);
+        background-color:var(--bg-color);
+    }
 	
 }
 
@@ -445,7 +448,7 @@ button:hover{
     }
     
 
-    .nav-btn{
+    button.nav-btn{
         display:block;
         width:30px;
         height:30px;
