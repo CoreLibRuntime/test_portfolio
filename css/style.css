@@ -239,19 +239,19 @@ button:hover{
 }
 
 .contact-phone{
-    background-image: url("/img/phone.svg");
+    background-image: url("../img/phone.svg");
 }
 
 .contact-mail{
-    background-image: url("/img/mail.svg");
+    background-image: url("../img/mail.svg");
 }
 
 .dark-theme .contact-mail{
-    background-image: url("/imgDark/email.svg");
+    background-image: url("../imgDark/email.svg");
 }
 
 .dark-theme .contact-phone{
-    background-image: url("/imgDark/phone.svg");
+    background-image: url("../imgDark/phone.svg");
 }
 
 .socialvk{
@@ -404,7 +404,7 @@ button:hover{
     border: 1px solid #CCCCCC;
     border-radius: 50%;
     background-color: #FFFFFF;
-    background-image: url('/img/moon.svg');
+    background-image: url('../img/moon.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 24px;
@@ -415,7 +415,7 @@ button:hover{
 .switch-checkbox:checked + .switch-slider:before {
     transform: translateX(24px);
     background-color: #FFFFFF;
-    background-image: url('/img/sun.svg');
+    background-image: url('../img/sun.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 24px;
