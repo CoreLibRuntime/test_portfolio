@@ -6,6 +6,17 @@
 
 }
 
+body{
+    background-color: var(--bg-color);
+}
+
+.dark-theme {
+
+    --txt-color:#CCCCCC;
+    --bg-color:#031923;
+
+}
+
 .text-wrapper{
     max-width: 800px;
 }
@@ -207,7 +218,9 @@ button:hover{
     text-decoration: none;
 }
 
-
+.dark-theme .contact-link {
+    color:#CCCCCC;
+}
 
 .contact-link:hover{
     transition: all, .3s;
@@ -220,13 +233,24 @@ button:hover{
     
 }
 
+.dark-theme .social-link{
+    background-color: #CCCCCC;
+}
+
 .contact-phone{
-    background-image: url('../img/ContactsIconPhone.svg');
+    background-image: url("/img/phone.svg");
 }
 
 .contact-mail{
-    background-image: url('../img/ContactsIconMail.svg');
-    
+    background-image: url("/img/mail.svg");
+}
+
+.dark-theme .contact-mail{
+    background-image: url("/imgDark/email.svg");
+}
+
+.dark-theme .contact-phone{
+    background-image: url("/imgDark/phone.svg");
 }
 
 .socialvk{
@@ -336,6 +360,66 @@ button:hover{
 .nav-btn{
     display: none;
 }
+
+.switch {    
+    position: fixed;
+    bottom: 20px;
+    right: 20px;  
+    width: 60px;
+    height: 34px;
+}
+
+
+.switch-checkbox {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+
+.switch-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 34px;
+    background-color: #CCCCCC;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+
+.switch-slider:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    bottom: 0;
+    height: 40px;
+    width: 40px;
+    margin: auto 0;
+    border: 1px solid #CCCCCC;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    background-image: url('/img/moon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+    transition: 0.4s;
+}
+
+
+.switch-checkbox:checked + .switch-slider:before {
+    transform: translateX(24px);
+    background-color: #FFFFFF;
+    background-image: url('/img/sun.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+}
+
 
 @media screen and (max-width: 1024px) { 
     section{

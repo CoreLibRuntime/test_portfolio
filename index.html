@@ -19,7 +19,7 @@
     <script defer src="js/script.js"></script>
   </head>
 
-  <body>
+  <body class="dark-theme">
     <div class="container">
       <header class="main-header">
         <div class="main-header-wrap">
@@ -41,13 +41,20 @@
         <section class="me">
           <div class="meme">
             <h1>Ольховик Никита</h1>
-            <h2>Программист</h2>
+            <h2>Software Engineer</h2>
           </div>
           <img class="meimage" src="img/photo.webp" alt="PHOTO" />
         </section>
 
         <section id="aboutme" class="intro">
-          <h2>Пара слов обо мне</h2>
+          <div style="display: flex; justify-content: space-between;">
+            <h2>Пара слов обо мне</h2>
+            <label class="switch">
+              <input class="switch-checkbox" type="checkbox">
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+          
           <div class="text-wrapper">
             <p>Привет ✌</p>
             <p>
