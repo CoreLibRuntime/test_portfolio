@@ -66,6 +66,10 @@ let menu = {
 }
 menu.init(document.querySelector('.menu'),document.querySelector('.nav-btn'));
 skills.generateList(document.querySelector('dl.skill-list'));
+if(localStorage.getItem("theme")==="light"){
+   document.body.classList.remove("dark-theme");
+   document.querySelector(".switch-checkbox").checked=true;
+} 
 
 document.querySelector(".skills-sort").addEventListener("click",function(e){
     if(e.target.tagName==="BUTTON"){
@@ -84,9 +88,16 @@ document.querySelector(".skills-sort").addEventListener("click",function(e){
 document.querySelector(".nav-btn").addEventListener(
     "click", e => e.target.classList.contains('nav-btn_open') ? menu.open():menu.close()
 );
-document.querySelector('.switch-checkbox[type="checkbox"]').
-addEventListener("change",function(e){
+document.querySelector('.switch-checkbox[type="checkbox"]').addEventListener("change",function(e){
     if(e.target.tagName==="INPUT" && e.target.className==="switch-checkbox"){
-        e.target.checked ? document.body.classList.remove("dark-theme"):document.body.classList.add("dark-theme");
+        if(e.target.checked){
+            document.body.classList.remove("dark-theme")
+            localStorage.setItem("theme","light")
+        }
+        else{
+            document.body.classList.remove("dark-theme")
+            document.body.classList.add("dark-theme")
+            localStorage.setItem("theme","dark")
+        }
     }
 });

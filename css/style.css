@@ -3,18 +3,19 @@
     --txt-color: #212121;
     --teal:#09a494;
     --bg-color:#ffffff;
+}
 
+.dark-theme {
+    --txt-color:#CCCCCC;
+    --bg-color:#031923;
 }
 
 body{
     background-color: var(--bg-color);
 }
 
-.dark-theme {
-
-    --txt-color:#CCCCCC;
-    --bg-color:#031923;
-
+a {
+    color:var(--txt-color);
 }
 
 .text-wrapper{
@@ -214,12 +215,8 @@ button:hover{
     padding:5px 0 5px 42px;
     background-repeat:no-repeat;
     background-position: left;
-    color: #212121;
+    color: var(--txt-color);
     text-decoration: none;
-}
-
-.dark-theme .contact-link {
-    color:#CCCCCC;
 }
 
 .contact-link:hover{
@@ -230,11 +227,15 @@ button:hover{
 .social-link:hover{
     transition: background-color .2s;
     background-color: var(--teal);
-    
 }
 
 .dark-theme .social-link{
-    background-color: #CCCCCC;
+    background-color: var(--txt-color);
+}
+
+.dark-theme .social-link:hover{
+    transition: all, .3s;
+    background-color:var(--teal);
 }
 
 .contact-phone{
