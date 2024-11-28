@@ -50,7 +50,7 @@ let skills = {
         return parentElement;
     },
     async getData(){
-        this.data = await (await fetch("../db/skills.json")).json()
+        this.data = await (await fetch("./db/skills.json")).json()
     }
 
 }
