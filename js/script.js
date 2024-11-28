@@ -1,13 +1,8 @@
 'use strict';
 let skills = {
     sortMode:null,
-    data : [
-        {name:'html',level:60,class:'skill-item_html',iconName:'html.svg'},
-        {name:'css',level:70,class:'skill-item_css',iconName:'css.svg'},
-        {name:'c#',level:80,class:'skill-item_csharp',iconName:'csharp.svg'},
-        {name:'cpp',level:90,class:'skill-item_cpp',iconName:'c++.svg'},
-        {name:'python',level:100,class:'skill-item_python',iconName:'python.svg'},
-    ],
+    data : null,
+    dataloaded:false,
     getComparator(prop){
         return (a,b) => a[prop]>b[prop] ? 1 : a[prop]<b[prop] ? -1:0
     },
@@ -23,24 +18,41 @@ let skills = {
         this.sortMode=type;
         
     },
-    generateList(parentElement){
+    async generateList(parentElement){
         parentElement.innerHTML="";
-        this.data.forEach(elem => {
-            let dt = document.createElement('dt');
-            dt.classList.add(elem.class, 'skill-item');
-            dt.textContent=elem.name;
-            dt.style.backgroundImage=`url('./img/skill_${elem.iconName}')`;
-            let dd = document.createElement('dd');
-            dd.classList.add('skill-level');
-            let div = document.createElement('div');
-            div.textContent=`${elem.level}%`;
-            div.style.width=div.textContent;
-            dd.appendChild(div);
-            parentElement.appendChild(dt);
-            parentElement.appendChild(dd);
-        });
+        try{
+            if(this.data===null)await this.getData();
+            this.data.forEach(elem => {
+                let dt = document.createElement('dt');
+                dt.classList.add(elem.class, 'skill-item');
+                dt.textContent=elem.name;
+                dt.style.backgroundImage=`url('./img/skill_${elem.iconName}')`;
+                let dd = document.createElement('dd');
+                dd.classList.add('skill-level');
+                let div = document.createElement('div');
+                div.textContent=`${elem.level}%`;
+                div.style.width=div.textContent;
+                dd.appendChild(div);
+                parentElement.appendChild(dt);
+                parentElement.appendChild(dd);
+            });
+        }
+        catch(e){
+            document.querySelector(".skills-sort").style.display='none';
+            let newElement = document.createElement('p');
+            let newButton = document.createElement('button');
+            newElement.textContent="Извините, данные не загрузились"
+            newButton.onclick=()=>{this.generateList(document.querySelector('dl.skill-list'))};
+            newButton.textContent="Перезагрузить"
+            parentElement.appendChild(newElement)
+            parentElement.appendChild(newButton)
+        }
         return parentElement;
+    },
+    async getData(){
+        this.data = await (await fetch("../db/skills.json")).json()
     }
+
 }
 let menu = {
     opened:true,
@@ -64,6 +76,7 @@ let menu = {
         this.btn.innerHTML='<span class="visually-hidden">Закрыть меню</span>';
     }
 }
+
 menu.init(document.querySelector('.menu'),document.querySelector('.nav-btn'));
 skills.generateList(document.querySelector('dl.skill-list'));
 if(localStorage.getItem("theme")==="light"){
@@ -101,3 +114,4 @@ document.querySelector('.switch-checkbox[type="checkbox"]').addEventListener("ch
         }
     }
 });
+

@@ -1,0 +1,32 @@
+[
+    {
+        "name": "html",
+        "level": 60,
+        "class": "skill-item_html",
+        "iconName": "html.svg"
+    },
+    {
+        "name": "css",
+        "level": 70,
+        "class": "skill-item_css",
+        "iconName": "css.svg"
+    },
+    {
+        "name": "c#",
+        "level": 80,
+        "class": "skill-item_csharp",
+        "iconName": "csharp.svg"
+    },
+    {
+        "name": "cpp",
+        "level": 90,
+        "class": "skill-item_cpp",
+        "iconName": "c++.svg"
+    },
+    {
+        "name": "python",
+        "level": 100,
+        "class": "skill-item_python",
+        "iconName": "python.svg"
+    }
+]
