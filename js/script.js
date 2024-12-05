@@ -1,27 +1,19 @@
 'use strict';
 let skills = {
-    sortMode:null,
-    data : null,
-    dataloaded:false,
+    sortMode: null,
+    data: null,
+    dataLoaded: false,
     getComparator(prop){
         return (a,b) => a[prop]>b[prop] ? 1 : a[prop]<b[prop] ? -1:0
     },
     sortList(type){
-        if(this.sortMode!=type) {
-            this.data.sort(this.getComparator(type));
-            console.log(`ОТСОРТИРОВАЛИ ПО ${type}`);
-        }
-        else{
-            this.data.reverse();
-            console.log(`ИНВЕРТИРОВАЛИ ПО ${type}`);
-        } 
+        this.sortMode!=type ? this.data.sort(this.getComparator(type)):this.data.reverse();
         this.sortMode=type;
-        
     },
-    async generateList(parentElement){
+    async renderList(parentElement){
         parentElement.innerHTML="";
         try{
-            if(this.data===null)await this.getData();
+            if(this.dataLoaded==false)await this.getData();
             this.data.forEach(elem => {
                 let dt = document.createElement('dt');
                 dt.classList.add(elem.class, 'skill-item');
@@ -32,25 +24,27 @@ let skills = {
                 let div = document.createElement('div');
                 div.textContent=`${elem.level}%`;
                 div.style.width=div.textContent;
-                dd.appendChild(div);
-                parentElement.appendChild(dt);
-                parentElement.appendChild(dd);
+                dd.append(div);
+                parentElement.append(dt);
+                parentElement.append(dd);
             });
         }
         catch(e){
             document.querySelector(".skills-sort").style.display='none';
-            let newElement = document.createElement('p');
-            let newButton = document.createElement('button');
+            const newElement = document.createElement('p');
+            const newButton = document.createElement('button');
             newElement.textContent="Извините, данные не загрузились"
-            newButton.onclick=()=>{this.generateList(document.querySelector('dl.skill-list'))};
+            newButton.onclick=()=>{this.renderList(document.querySelector('dl.skill-list'))};
             newButton.textContent="Перезагрузить"
-            parentElement.appendChild(newElement)
-            parentElement.appendChild(newButton)
+            parentElement.append(newElement)
+            parentElement.append(newButton)
         }
         return parentElement;
     },
     async getData(){
-        this.data = await (await fetch("../db/skills.json")).json()
+        const json=await fetch("./db/skills.json")
+        this.data = await json.json()
+        this.dataLoaded=true
     }
 
 }
@@ -78,7 +72,7 @@ let menu = {
 }
 
 menu.init(document.querySelector('.menu'),document.querySelector('.nav-btn'));
-skills.generateList(document.querySelector('dl.skill-list'));
+skills.renderList(document.querySelector('dl.skill-list'));
 if(localStorage.getItem("theme")==="light"){
    document.body.classList.remove("dark-theme");
    document.querySelector(".switch-checkbox").checked=true;
@@ -90,10 +84,9 @@ document.querySelector(".skills-sort").addEventListener("click",function(e){
             case 'name':
             case 'level':
                 skills.sortList(e.target.dataset.type);
-                skills.generateList(document.querySelector('dl.skill-list'));
+                skills.renderList(document.querySelector('dl.skill-list'));
                 break;
             default:
-                console.log(e.target.tagName);
                 break;
         }
     }
