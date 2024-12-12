@@ -1,5 +1,5 @@
 'use strict';
-let skills = {
+const skills = {
     sortMode: null,
     data: null,
     dataLoaded: false,
@@ -15,18 +15,17 @@ let skills = {
         try{
             if(this.dataLoaded==false)await this.getData();
             this.data.forEach(elem => {
-                let dt = document.createElement('dt');
+                const dt = document.createElement('dt');
                 dt.classList.add(elem.class, 'skill-item');
                 dt.textContent=elem.name;
                 dt.style.backgroundImage=`url('./img/skill_${elem.iconName}')`;
-                let dd = document.createElement('dd');
+                const dd = document.createElement('dd');
                 dd.classList.add('skill-level');
-                let div = document.createElement('div');
+                const div = document.createElement('div');
                 div.textContent=`${elem.level}%`;
                 div.style.width=div.textContent;
                 dd.append(div);
-                parentElement.append(dt);
-                parentElement.append(dd);
+                parentElement.append(dt,dd);
             });
         }
         catch(e){
@@ -36,8 +35,7 @@ let skills = {
             newElement.textContent="Извините, данные не загрузились"
             newButton.onclick=()=>{this.renderList(document.querySelector('dl.skill-list'))};
             newButton.textContent="Перезагрузить"
-            parentElement.append(newElement)
-            parentElement.append(newButton)
+            parentElement.append(newElement,newButton)
         }
         return parentElement;
     },
@@ -48,7 +46,7 @@ let skills = {
     }
 
 }
-let menu = {
+const menu = {
     opened:true,
     nav:null,
     btn:null,
